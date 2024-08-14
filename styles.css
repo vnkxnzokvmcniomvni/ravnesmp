@@ -1,0 +1,200 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    background-color: #CEE5F2; /* Light blue background for light mode */
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Header styles */
+header {
+    background-color: #2D7DD2; /* Bright blue for light mode */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+/* Theme switcher */
+.theme-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0; /* Hide the default checkbox */
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #CCCCCC; /* Light grey background for off state */
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white; /* White knob */
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2D7DD2; /* Bright blue when toggled */
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px); /* Move knob to the right */
+}
+
+/* Main section styles */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 140px); /* Adjust based on header/footer height */
+}
+
+/* Shared section styles */
+.server-info, .youtube-section, .modrinth-section {
+    text-align: center;
+    background-color: #FFFFFF; /* White background for light mode */
+    border-radius: 12px; /* Increased border-radius for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px; /* Increased padding for larger sections */
+    max-width: 450px; /* Increased max width */
+    width: 100%;
+    margin-bottom: 25px; /* Larger margin for spacing */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.server-info:hover, .youtube-section:hover, .modrinth-section:hover {
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* IP address styling */
+#server-ip {
+    font-size: 28px; /* Larger font size */
+    font-weight: bold; /* Make the text bold */
+    color: #2D7DD2; /* Bright blue for the IP address in light mode */
+    cursor: pointer; /* Make the IP look clickable */
+    text-decoration: underline; /* Underline to indicate it's clickable */
+}
+
+/* Notification styling */
+#copy-notification {
+    position: absolute;
+    background-color: #2D7DD2; /* Bright blue background */
+    color: #FFFFFF; /* White text */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    top: -40px; /* Position above the IP address */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    pointer-events: none; /* Make it non-interactive */
+    transition: opacity 0.3s ease, top 0.3s ease;
+}
+
+#copy-notification.show {
+    opacity: 1;
+    top: -50px; /* Moves it slightly higher when showing */
+}
+
+/* Button styles */
+.button {
+    display: inline-block;
+    font-size: 20px; /* Slightly larger font size for buttons */
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #2D7DD2; /* Bright blue for light mode */
+    padding: 15px 30px; /* Slightly larger padding for buttons */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: #1C5B9E; /* Darker blue for hover effect */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+/* Footer styles */
+footer {
+    background-color: #2D7DD2; /* Bright blue for light mode */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 12px; /* Smaller font size for copyright text */
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #080705; /* Almost black for dark mode */
+    color: #CEE5F2; /* Light blue text for dark mode */
+}
+
+/* Dark mode header and footer */
+body.dark-mode header {
+    background-color: #390099; /* Dark purple for dark mode header */
+}
+
+body.dark-mode footer {
+    background-color: #390099; /* Dark purple for dark mode footer */
+}
+
+/* Dark mode sections */
+body.dark-mode .server-info, 
+body.dark-mode .youtube-section, 
+body.dark-mode .modrinth-section {
+    background-color: #2D7DD2; /* Bright blue background for dark mode sections */
+    border: 1px solid #390099; /* Dark purple border */
+}
+
+body.dark-mode .button {
+    background-color: #ED254E; /* Bright red button for dark mode */
+}
+
+body.dark-mode .button:hover {
+    background-color: #B6214E; /* Slightly darker red on hover */
+}
+
+/* Dark mode IP address styling */
+body.dark-mode #server-ip {
+    color: #CEE5F2; /* Light blue for the IP address in dark mode */
+}
